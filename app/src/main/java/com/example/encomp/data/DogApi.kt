@@ -12,6 +12,15 @@ interface DogApi {
     @GET("breeds/image/random")
     suspend fun getRandomDog(): Response<DogResponse>
 
+    @GET("breed/{breed}/images/random")
+    suspend fun getRandomDogByBreed(
+        @Path("breed") breed: String
+    ): Response<DogResponse>
+
+    @GET("/breeds/list")
+    suspend fun getBreeds(): Response<BreedResponse>
+
+
     companion object{
         private const val BASE_URL = "https://dog.ceo/api/"
 
